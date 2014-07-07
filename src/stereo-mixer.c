@@ -32,6 +32,9 @@ typedef enum {
 	gain_in_both = 6,
 	wide = 7,
 	wide_law = 8,
+	pan = 9,
+	pan_law = 10,
+	pan_gain_compensation = 11,
 	gain_out_l = 12,
 	gain_out_r = 13,
 	gain_out_both = 14
@@ -47,6 +50,9 @@ typedef struct {
 	const float* gain_in_both;
 	const float* wide;
 	const float* wide_law;
+	const float* pan;
+	const float* pan_law;
+	const float* pan_gain_compensation;
 	const float* gain_out_l;
 	const float* gain_out_r;
 	const float* gain_out_both;
@@ -104,6 +110,15 @@ static void connect_port ( // {{{1
 	case wide_law:
 		plugin->wide_law = (const float *)data;
 		break;
+	case pan:
+		plugin->pan = (const float *)data;
+		break;
+	case pan_law:
+		plugin->pan_law = (const float *)data;
+		break;
+	case pan_gain_compensation:
+		plugin->pan_gain_compensation = (const float *)data;
+		break;
 	case gain_out_l:
 		plugin->gain_out_l = (const float *)data;
 		break;
@@ -131,6 +146,9 @@ static void run ( // {{{1
 	const float gain_in_both = *(plugin->gain_in_both);
 	const float wide = *(plugin->wide);
 	const float wide_law = *(plugin->wide_law);
+	const float pan = *(plugin->pan);
+	const float pan_law = *(plugin->pan_law);
+	const float pan_gain_compensation = *(plugin->pan_gain_compensation);
 	const float gain_out_l = *(plugin->gain_out_l);
 	const float gain_out_r = *(plugin->gain_out_r);
 	const float gain_out_both = *(plugin->gain_out_both);
@@ -158,16 +176,33 @@ static void run ( // {{{1
 
 	float wide_law_val = gainPrepare(wide_law);
 
+	float pan_law_val = gainPrepare(pan_law);
+
+	float pan_val = pan;
+	if (pan_val < -100) pan_val = -100;
+	if (pan_val > 100) pan_val = 100;
+
 	inline float out(const float ch1, const float ch2, const float gain_out) {
 		return ( (ch1) + (ch2 * (1-wide_val)) )
 			* ( ((1-wide_law_val) * wide_val) + wide_law_val )
 			* (gain_out);
 	}
 
+	inline float coefPan(const uint8_t side) {
+		float a = pan_val + 100; // 0..200
+		if (side == 0) { a = 200 - a; } // invert for left
+
+		if (a < 100) {
+			return (a / 100);
+		} else {
+			return 1;
+		}
+	}
+
 	uint32_t i;
 	for (i=0; i<n_samples; i++) {
-		output_l[i] = out(input_l[i] * gain_in_l_val, input_r[i] * gain_in_r_val, gain_out_l_val);
-		output_r[i] = out(input_r[i] * gain_in_r_val, input_l[i] * gain_in_l_val, gain_out_r_val);
+		output_l[i] = out(input_l[i] * gain_in_l_val, input_r[i] * gain_in_r_val, gain_out_l_val) * coefPan(0);
+		output_r[i] = out(input_r[i] * gain_in_r_val, input_l[i] * gain_in_l_val, gain_out_r_val) * coefPan(1);
 	}
 } // run() }}}1
 
