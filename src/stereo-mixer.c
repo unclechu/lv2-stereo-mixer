@@ -191,15 +191,20 @@ static void run ( // {{{1
 	inline float coefPan(const uint8_t side) {
 		float a = pan_val + 100; // 0..200
 		if (side == 0) { a = 200 - a; } // invert for left
+		float c = a / 100;
+		float result;
+
+		result = pan_law_val;
 
 		if (a < 100) {
-			return a / 100;
-		} else {
-			if (pan_gain_compensation) {
-				return a / 100;
-			}
-			return 1;
+			result *= c;
+		} else if (a > 100) {
+			result += ((1-pan_law_val) * (c-1) / 1);
 		}
+
+		if (pan_gain_compensation == 1) result *= (1 - pan_law_val) + 1;
+
+		return result;
 	}
 
 	uint32_t i;

@@ -110,7 +110,7 @@ p:
 		a lv2:ControlPort, lv2:InputPort;
 		lv2:index 11;
 		lv2:symbol "pan_gain_compensation";
-		lv2:name "Pan gain compensation";
+		lv2:name "Pan gain compensation (boost)";
 		lv2:portProperty lv2:toggled;
 		lv2:minimum 0;
 		lv2:maximum 1;
