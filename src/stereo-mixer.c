@@ -193,8 +193,11 @@ static void run ( // {{{1
 		if (side == 0) { a = 200 - a; } // invert for left
 
 		if (a < 100) {
-			return (a / 100);
+			return a / 100;
 		} else {
+			if (pan_gain_compensation) {
+				return a / 100;
+			}
 			return 1;
 		}
 	}
