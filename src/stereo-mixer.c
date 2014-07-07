@@ -19,6 +19,7 @@ Author: Viacheslav Lotsmanov (unclechu)
 
 /** Define a macro for converting a gain in dB to a coefficient */
 #define DB_CO(g) ((g) > -90.0f ? powf(10.0f, (g) * 0.05f) : 0.0f)
+#define DB_CO_safe(g) ((g) > -90.0f ? DB_CO(g) : DB_CO(-90.0f))
 
 double samplerate;
 
@@ -153,16 +154,12 @@ static void run ( // {{{1
 	const float gain_out_r = *(plugin->gain_out_r);
 	const float gain_out_both = *(plugin->gain_out_both);
 
-	inline float gainPrepare(const float gain) {
-		if (gain > -90) return DB_CO(gain); else return 0;
-	}
-
-	float gain_in_l_val = gainPrepare(gain_in_l);
-	float gain_in_r_val = gainPrepare(gain_in_r);
-	float gain_in_both_val = gainPrepare(gain_in_both);
-	float gain_out_l_val = gainPrepare(gain_out_l);
-	float gain_out_r_val = gainPrepare(gain_out_r);
-	float gain_out_both_val = gainPrepare(gain_out_both);
+	float gain_in_l_val = DB_CO(gain_in_l);
+	float gain_in_r_val = DB_CO(gain_in_r);
+	float gain_in_both_val = DB_CO(gain_in_both);
+	float gain_out_l_val = DB_CO(gain_out_l);
+	float gain_out_r_val = DB_CO(gain_out_r);
+	float gain_out_both_val = DB_CO(gain_out_both);
 
 	gain_in_l_val *= gain_in_both_val;
 	gain_in_r_val *= gain_in_both_val;
@@ -174,18 +171,17 @@ static void run ( // {{{1
 	if (wide_val > 100) wide_val = 100;
 	wide_val = wide_val / 100;
 
-	float wide_law_val = gainPrepare(wide_law);
-
-	float pan_law_val = gainPrepare(pan_law);
+	float pan_law_val = DB_CO(pan_law);
 
 	float pan_val = pan;
 	if (pan_val < -100) pan_val = -100;
 	if (pan_val > 100) pan_val = 100;
 
 	inline float out(const float ch1, const float ch2, const float gain_out) {
-		return ( (ch1) + (ch2 * (1-wide_val)) )
-			* ( ((1-wide_law_val) * wide_val) + wide_law_val )
-			* (gain_out);
+		return (
+				( (ch1) + (ch2 * (1-wide_val)) )
+				* ( DB_CO(-((1-wide_val) * (-wide_law) / 1)) )
+			) * (gain_out);
 	}
 
 	inline float coefPan(const uint8_t side) {
@@ -202,7 +198,7 @@ static void run ( // {{{1
 			result += ((1-pan_law_val) * (c-1) / 1);
 		}
 
-		if (pan_gain_compensation == 1) result *= (1 - pan_law_val) + 1;
+		if (pan_gain_compensation == 1) result *= DB_CO_safe(-pan_law);
 
 		return result;
 	}
