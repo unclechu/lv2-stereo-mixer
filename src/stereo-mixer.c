@@ -83,52 +83,26 @@ static void connect_port ( // {{{1
 ) {
 	Plugin *plugin = (Plugin *)instance;
 
+#define DB_CO_safe(g) ((g) > -90.0f ? DB_CO(g) : DB_CO(-90.0f))
+#define portConnect(pname) case pname: plugin->pname = (float *)data; break;
+#define portConnectC(pname) case pname: plugin->pname = (const float *)data; break;
+
 	switch((PortIndex)port) {
-	case input_l:
-		plugin->input_l = (const float *)data;
-		break;
-	case input_r:
-		plugin->input_r = (const float *)data;
-		break;
-	case output_l:
-		plugin->output_l = (float *)data;
-		break;
-	case output_r:
-		plugin->output_r = (float *)data;
-		break;
-	case gain_in_l:
-		plugin->gain_in_l = (const float *)data;
-		break;
-	case gain_in_r:
-		plugin->gain_in_r = (const float *)data;
-		break;
-	case gain_in_both:
-		plugin->gain_in_both = (const float *)data;
-		break;
-	case wide:
-		plugin->wide = (const float *)data;
-		break;
-	case wide_law:
-		plugin->wide_law = (const float *)data;
-		break;
-	case pan:
-		plugin->pan = (const float *)data;
-		break;
-	case pan_law:
-		plugin->pan_law = (const float *)data;
-		break;
-	case pan_gain_compensation:
-		plugin->pan_gain_compensation = (const float *)data;
-		break;
-	case gain_out_l:
-		plugin->gain_out_l = (const float *)data;
-		break;
-	case gain_out_r:
-		plugin->gain_out_r = (const float *)data;
-		break;
-	case gain_out_both:
-		plugin->gain_out_both = (const float *)data;
-		break;
+		portConnectC(input_l);
+		portConnectC(input_r);
+		portConnect(output_l);
+		portConnect(output_r);
+		portConnectC(gain_in_l);
+		portConnectC(gain_in_r);
+		portConnectC(gain_in_both);
+		portConnectC(wide);
+		portConnectC(wide_law);
+		portConnectC(pan);
+		portConnectC(pan_law);
+		portConnectC(pan_gain_compensation);
+		portConnectC(gain_out_l);
+		portConnectC(gain_out_r);
+		portConnectC(gain_out_both);
 	}
 } // connect_port() }}}1
 
