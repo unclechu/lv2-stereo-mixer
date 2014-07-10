@@ -83,7 +83,6 @@ static void connect_port ( // {{{1
 ) {
 	Plugin *plugin = (Plugin *)instance;
 
-#define DB_CO_safe(g) ((g) > -90.0f ? DB_CO(g) : DB_CO(-90.0f))
 #define portConnect(pname) case pname: plugin->pname = (float *)data; break;
 #define portConnectC(pname) case pname: plugin->pname = (const float *)data; break;
 
