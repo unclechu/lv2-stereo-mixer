@@ -12,7 +12,7 @@ p:
 	lv2:binary <stereo-mixer.so>;
 	doap:name "Stereo Mixer";
 	doap:maintainer [ foaf:name "Viacheslav Lotsmanov"; ];
-	doap:license <http://usefulinc.com/doap/licenses/lgpl>;
+	doap:license <http://usefulinc.com/doap/licenses/gpl>;
 
 	lv2:port [
 		a lv2:AudioPort, lv2:InputPort;

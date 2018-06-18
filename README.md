@@ -1,4 +1,14 @@
 lv2-stereo-mixer
 ================
 
-LV2 plugin. Pan, wide, pan gain compensation.
+An LV2 audio plug-in for stereo-signal manipulation.
+
+Author
+======
+
+Viacheslav Lotsmanov
+
+License
+=======
+
+[GPLv3](./LICENSE)
