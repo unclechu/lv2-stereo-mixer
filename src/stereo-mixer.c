@@ -1,17 +1,14 @@
-/*
-
-Plugin Mixer
-LV2 plugin. Pan, wide, pan gain compensation.
-
-License: GPLv3 (https://github.com/unclechu/lv2-stereo-mixer/blob/master/LICENSE)
-Author: Viacheslav Lotsmanov (unclechu)
-
-*/
+/**
+ * License: GPLv3 (https://github.com/unclechu/lv2-stereo-mixer/blob/master/LICENSE)
+ * Author: Viacheslav Lotsmanov
+ */
 
 #ifdef DEBUG
 #include <stdio.h>
 #endif
 
+#include <stdlib.h>
+#include <math.h>
 #include "lv2/lv2plug.in/ns/lv2core/lv2.h"
 #include "lv2/lv2plug.in/ns/ext/atom/atom.h"
 
