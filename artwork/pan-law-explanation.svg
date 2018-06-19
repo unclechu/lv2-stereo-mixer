@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="400"
+   height="600"
+   viewBox="0 0 105.83333 158.75"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="pan-law-explanation.svg"
+   inkscape:export-filename="/home/uc/dev/c/lv2-stereo-mixer/artwork/pan-law-explanation.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="416.35382"
+     inkscape:cy="301.47971"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:pagecheckerboard="false"
+     inkscape:window-width="1916"
+     inkscape:window-height="1037"
+     inkscape:window-x="0"
+     inkscape:window-y="1256"
+     inkscape:window-maximized="0"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="53.015885,33.05638"
+       orientation="1,0"
+       id="guide3829"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-138.24998)">
+    <rect
+       style="fill:#ffffff;stroke-width:0.22837499"
+       id="rect14"
+       width="109.00833"
+       height="0.52917176"
+       x="-1.3229165"
+       y="217.8895" />
+    <circle
+       style="fill:#ffffff;stroke-width:0.26458332"
+       id="path22"
+       cx="52.916668"
+       cy="193.28328"
+       r="8.2020836" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="41.010418"
+       y="208.3645"
+       id="text26"><tspan
+         sodipodi:role="line"
+         id="tspan24"
+         x="41.010418"
+         y="208.3645"
+         style="font-size:5.64444447px;fill:#ffffff;stroke-width:0.26458332">Listener</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="1.8520832"
+       y="144.86452"
+       id="text30"><tspan
+         sodipodi:role="line"
+         id="tspan28"
+         x="1.8520832"
+         y="144.86452"
+         style="font-size:5.64444447px;fill:#ffffff;stroke-width:0.26458332">Linear panning</tspan></text>
+    <circle
+       style="fill:#ffffff;stroke-width:0.26458332"
+       id="path22-5"
+       cx="52.916668"
+       cy="273.18741"
+       r="8.2020836" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="41.010418"
+       y="288.26859"
+       id="text26-6"><tspan
+         sodipodi:role="line"
+         id="tspan24-2"
+         x="41.010418"
+         y="288.26859"
+         style="font-size:5.64444447px;fill:#ffffff;stroke-width:0.26458332">Listener</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="1.8520832"
+       y="224.76868"
+       id="text30-9"><tspan
+         sodipodi:role="line"
+         id="tspan28-1"
+         x="1.8520832"
+         y="224.76868"
+         style="font-size:5.64444447px;fill:#ffffff;stroke-width:0.26458332">Using pan law</tspan></text>
+    <rect
+       style="fill:#008000;stroke-width:0.21021061"
+       id="rect14-2"
+       width="92.35743"
+       height="0.52917176"
+       x="6.5348077"
+       y="193.019" />
+    <a
+       id="a122">
+      <path
+         style="fill:#008000;stroke-width:0.21021061"
+         d="m 6.5348077,272.9231 c 0,0 0.7862957,-33.7113 46.4810783,-33.56901 45.694783,0.14229 45.876351,33.56901 45.876351,33.56901 v 0.52917 c 0,0 -0.174727,-33.4281 -45.879274,-33.56901 C 7.3084164,239.74235 6.5348077,273.45227 6.5348077,273.45227 Z"
+         id="rect14-2-7"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="czcczcc" />
+    </a>
+  </g>
+</svg>
